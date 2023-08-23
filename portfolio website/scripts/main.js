@@ -1,4 +1,4 @@
-const dyn_text = document.querySelector("#dynamic_text")
+const dyn_text = document.querySelector("#dynamic_text p")
 const skillsElement = document.querySelector("#skills")
 const projectsElement = document.querySelector("#p_names") 
 const imageElement = document.querySelector("#projects img")

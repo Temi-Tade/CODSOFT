@@ -19,6 +19,8 @@ html{
 	background: var(--color);
 	font-size: var(--font-med);
 	accent-color: var(--bgcolor);
+	scroll-behavior: smooth;
+	user-select: none
 }
 
 header h1{

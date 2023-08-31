@@ -58,11 +58,6 @@ const createTodoForm = () => {
         		<input type="text" id="task" placeholder="Add a to-do..." autofocus>
         	</div>
         	
-        	<!--<div class='todo-input'>
-        		<small>Set date and 
-        		<input type='date' id='todo-date'>
-        	</div>-->
-        	
         	<div class='todo-input'>
         		<button type="submit" id="submit" disabled>add</button>
         	</div>
@@ -87,5 +82,6 @@ const createTodoForm = () => {
 		updateStorage(task)
 		getTasks()
 		form.reset()
+		modbg.style.display = 'none'
 	}
 }

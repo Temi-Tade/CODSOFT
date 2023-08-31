@@ -1,22 +1,32 @@
-
 const addbtn = document.querySelector('#addbtn')
-const tasks = document.querySelector('.added-tasks')
 const num = document.querySelector('#num')
 const modbg = document.querySelector('#pop-up-bg')
 const mod = document.querySelector("#pop-up")
 
-class Task{
-  constructor(name, status){
-    this.name = name;
-    this.status = 'pending';
-  } 
-  isCompleted(){
-    if (this.status === 'completed') {
-      return true
-    }else{
-      return false
+//const generateUserId = () => {}
+
+class Todo{
+	constructor(name, status){
+		this.name = name;
+		this.status = 'pending';
+    //time
     }
-  }
+    
+    updateStatus = (bool) => {
+    	if (bool) {
+    		this.status = 'completed'
+    	}else{
+    		this.status = 'pending'
+    	}
+    }
+    
+    isCompleted = () => {
+    	if (this.status === 'completed') {
+    		return true
+    	}else{
+    		return false
+    	}
+    }
 }
 
 const createpopUp = (body) => {
@@ -28,14 +38,7 @@ const createpopUp = (body) => {
 		duration: 500,
 	})
 	mod.innerHTML = body
-let checkInput = () => {
-		alert()
-		if (input.value.trim().length === 0) {
-			submitBtn.disabled = true
-		} else {
-			submitBtn.disabled = false
-		}
-	}
+	
 	window.onclick = () => {
 		if (event.target === modbg) {
 			modbg.style.display = 'none'
@@ -49,7 +52,7 @@ addbtn.onclick = (e) => {
 	
 const createTodoForm = () => {
 	createpopUp(`
-		<form id="todo-form" autocomplete="off" spellcheck="false" onsubmit='addTodo()'>
+		<form id="todo-form" autocomplete="off" spellcheck="false">
 			<h3>Add a to-do</h3>
     		<div class="todo-input">
         		<input type="text" id="task" placeholder="Add a to-do..." autofocus>
@@ -66,7 +69,7 @@ const createTodoForm = () => {
       </form>
 	`)
 	
-	const form = document.querySelector('.todo-form')
+	const form = document.querySelector('#todo-form')
 	const input = document.querySelector('#task')
 	const submitBtn = document.querySelector('#submit')
 	
@@ -78,22 +81,11 @@ const createTodoForm = () => {
 		}
 	}
 	
-	let addTodo = () => {
+	form.onsubmit = () => {
 		event.preventDefault()
-		if (input.value.trim() === '' || input.value.trim() === undefined || input.value.trim() === null) {
-			return false
-		} else {
-			let task = new Task(input.value.trim(), 'pending')
-			if (localStorage.getItem('tasks') === null) {
-				var taskArr = []
-				taskArr.push(task)
-				localStorage.setItem('tasks', JSON.stringify(taskArr))
-			} else {
-				var taskArr = JSON.parse(localStorage.getItem('tasks'))
-				taskArr.push(task)
-				localStorage.setItem('tasks', JSON.stringify(taskArr))
-			}
-		}
+		let task = new Todo(input.value.trim(), 'pending')
+		updateStorage(task)
+		getTasks()
 		form.reset()
 	}
 }

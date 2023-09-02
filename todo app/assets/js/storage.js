@@ -10,7 +10,7 @@ const getStorage = () => {
 
 const getTasks = () => {
 	if (!getStorage() || getStorage().length === 0) {
-		tasklist.innerHTML = `No To-dos! You're all set. Click on the button below to add a new To-do`
+		tasklist.innerHTML = `<div id='no-todo' class='fas fa-check-circle'><br>No To-dos! You're all set. Click on the <strong>&plus;</strong> button below to add a new To-do</div>`
 	} else {
 		tasklist.innerHTML = ''
 		getStorage().forEach((val, ind) => {

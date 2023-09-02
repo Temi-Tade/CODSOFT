@@ -40,6 +40,10 @@ header h1{
   outline: none;
 }
 
+body{
+	font-family: "Ubuntu", sans-serif
+}
+
 button{
 	border: 0;
 	background: transparent;
@@ -189,3 +193,17 @@ td button{
 	font-size: 2rem;
 	padding: .5rem;
 }
+
+#no-todo{
+	text-align: center;
+	font-weight: 300;
+	line-height: 1.5rem;
+	padding: .5rem;
+}
+
+#no-todo::first-letter{
+	display: block;
+	font-size: 4rem;
+	color: var(--bgcolor);
+}
+

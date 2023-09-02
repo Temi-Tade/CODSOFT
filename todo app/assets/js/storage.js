@@ -39,6 +39,8 @@ const getTasks = () => {
 					createTodoForm()
 					mod.querySelector('form input').value = `${val.querySelector('p').innerHTML}`
 					mod.querySelector('form').id = 'edit-todo-form'
+					mod.querySelector('h3').innerHTML = 'edit a to-do'
+					mod.querySelector('button').innerHTML = 'save'
 					mod.querySelector('#edit-todo-form').onsubmit = () => {
 					event.preventDefault()
 					let taskArr = getStorage()
@@ -65,10 +67,41 @@ const getTasks = () => {
 				}
 				localStorage.setItem('tasks', JSON.stringify(taskArr))
 			}
+			
+			tasklist.querySelectorAll('li')[ind].oncontextmenu = () => {
+				event.preventDefault()
+				createpopUp(`
+					<h3>delete todo</h3>
+					<table width='100%'>
+						<tr>
+							<th>Task Name</th>
+							<td>${getStorage()[ind].name}</td>
+						</tr>
+						
+						<tr>
+							<th>Status</th>
+							<td>${getStorage()[ind].status}</td>
+						</tr>
+						
+						<tr>
+							<td colspan='2'><button class='fas fa-trash' id='delbtn'></button></td>
+						</tr>
+					</table>
+				`)
+				
+				document.querySelector('#delbtn').onclick = () => {
+					let taskArr = getStorage()
+					taskArr.splice(ind, 1)
+					localStorage.setItem('tasks', JSON.stringify(taskArr))
+					getTasks()
+					modbg.style.display = 'none'
+				}
+			}
 		})
 	}
 }
-	
+
+ 
 const updateStorage = (x) => {
 	if (!getStorage()) {
 		setStorage()

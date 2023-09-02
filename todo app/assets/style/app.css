@@ -41,7 +41,8 @@ header h1{
 }
 
 body{
-	font-family: "Ubuntu", sans-serif
+	font-family: "Ubuntu", sans-serif;
+	overscroll-behavior-y: none
 }
 
 button{

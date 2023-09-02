@@ -68,6 +68,10 @@ const createTodoForm = () => {
 	const input = document.querySelector('#task')
 	const submitBtn = document.querySelector('#submit')
 	
+	input.onfocus = () => {
+		mod.scrollIntoView()
+	}
+	
 	input.oninput = () => {
 		if (input.value.trim().length === 0) {
 			submitBtn.disabled = true

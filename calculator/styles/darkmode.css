@@ -1,0 +1,98 @@
+*{
+   line-height: 1.7;
+   box-sizing: border-box;
+   padding: 0;
+   margin: 0;
+   user-select: none; 
+   letter-spacing: 1.2px;
+   font-family: Ubuntu, sans-serif;
+}
+
+#page {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    margin: auto;
+    background: #333;
+    padding: 20px 15px;
+  }
+
+#screen{
+  background: #eee;
+}
+
+#time{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 300;
+  font-size: 1.2rem;
+  padding: 3px;
+  margin: .25rem auto;
+  color: #eee;
+  background: transparent;
+  height: 60px;
+  font-style: italic;
+}
+
+#settings button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: inherit;
+	font-size: .75rem;
+	border: 0;
+	padding: 1rem;
+}
+
+  button {
+   padding: 7px;
+   width: 10%;
+   font-size: 5rem;
+   border: 0;
+   font-weight: 350;
+   background: #555;
+   color: #FFF;
+   margin: 4px 2px;
+   border-radius: 6px;
+   cursor: pointer;
+ }
+
+ .clear {
+   background: #f12;
+   color: #fff;
+ }
+ 
+ .del {
+   background: #02f;
+ }
+ 
+@media only screen and (min-width: 600px) {
+	html{
+		position: relative;
+	}
+	
+	body{
+		width: 100%;
+	}
+	
+	#page{
+		margin: auto;
+		padding: 1rem;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+	
+	#container{
+		border: 1.5px solid #ccc;
+		border-radius: .5rem;
+		width: 35rem;
+		height: 55rem;
+		padding: 1rem;
+		background: #333;
+	}
+}

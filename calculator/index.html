@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>JS CALCULATOR</title>
+   
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="stylesheet" href="./styles/panel.css">
+  <link rel="stylesheet" id="custom" href="">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body align="center">
+	<div class="panel-bg">
+		<div id="modal">
+			<div id="modal-text"></div>
+			<div id="actionbtns">
+				<button class="del">cancel</button>
+				<button class="clear">ok</button>
+			</div>
+		</div>
+
+		<section id="panel">
+			<div id="panel-header">
+				<ul type="none">
+					<li>
+						<label>
+							<input type="radio" name="opt">
+							<div>Settings</div>
+						</label>
+					</li>
+					
+					<li>
+						<label>
+							<input type="radio" name="opt">
+							<div>About</div>
+						</label>
+					</li>
+					
+					<li>
+						<label>
+							<input type="radio" name="opt">
+							<div>More</div>
+						</label>
+					</li>
+				</ul>
+				
+				<button id="closebtn" onclick="panelBg.style.display = 'none'">
+					&times;
+				</button>
+			</div>
+			
+			<div id="panel-body">
+				<div class="tab">
+				<ul type="none">
+					<li id="t">
+						<p>Display time:</p>
+						<label class="switch">
+							<input type="checkbox" name="toggle" id="toggleTime" oninput="toggleTimeDisp(this)" >
+							<p class="slider"></p>
+						</label>
+					</li>
+					
+					<li id="sound">
+						<p>Play sound on button press</p>
+						<label class="switch">
+							<input type="checkbox" name="toggle" id="toggleSound" oninput="toggleSound(this)">
+							<p class="slider"></p>
+						</label>
+					</li>
+					
+					<!--Themes-->
+					<li id="theme-list">
+						<p>Theme</p>
+							<ul type="none" class="themes">
+								<li>
+									<label>
+										<input type="radio" name="theme" id="light" checked>
+										<div>Light</div>
+									</label>
+								</li>
+							
+								<li>
+									<label>
+										<input type="radio" name="theme" id="dark">
+										<div>Dark</div>
+									</label>
+								</li>
+						</ul>
+					</li>
+					
+					<button id="clearAppDataBtn" class="cls">Clear App Data</button>
+				</ul>
+				</div>
+				
+				<div class="tab">
+					<table>
+						<caption>About</caption>
+						<tr>
+							<td>Version</td>
+							<td>1.0.0</td>
+						</tr>
+
+						<tr>
+							<td>Developer Contact</td>
+							<td>
+								<ul style='font-size: 4rem; display: flex; justify-content: space-between' type='none'>
+									<li><a style='text-decoration: none; color: red;' href='mailto: codinglabz20@gmail.com'><i class='fas fa-envelope'></i></a></li>
+									<li><a style='text-decoration: none; color: white;' href='https://github.com/Temi-Tade'><i class='fab fa-github'></i></a></li>
+									<li><a style='text-decoration: none; color: dodgerblue;' href='https://www.facebook.com/temiloluwa.akintade.10'><i class='fab fa-facebook'></i></a></li>
+									<li><a style='text-decoration: none; color: skyblue;' href='https://twitter.com/Temi_tade2805?t=lfJM50RhBTrrrSb4hHfVgQ&s=09'><i class='fab fa-twitter'></i></a></li>
+								</ul>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				<div class="tab">
+					<h3>More products by the developer</h3>
+					<ul type='none'>
+					<li><a href='https://temi-tade.github.io/love_calculator'>Love tester</a></li>
+					<li><a href="https://temi-tade.github.io/countdown-timer">Countdown timer</a></li>
+					</ul>`
+				</div>
+			</div>
+		</section>
+	</div>
+	
+	<div id="page">
+		<div id="container">
+			<div id="toast-container">
+				<div id="toast">
+					<p id="toast-text"></p>
+				</div>
+			</div>
+
+			<div id="time">
+				<div id="d"></div>
+				<div id="t"></div>
+			</div>
+			
+			<div id="screen-wrap">
+				<div id="screen">
+					<input type="text" disabled id="ans"><br>
+					<span id="result"></span>
+				</div>
+			</div>
+			
+			<div id="settings">
+				<ul type="none">
+					<li>
+						<button id="settings">
+							<i class="fas fa-wrench"></i>Settings
+						</button>
+					</li>
+    			
+    			<li>
+    				<button id="about">
+        				<i class="fas fa-info"></i>
+    					About
+    				</button>
+    			</li>
+    			
+    			<li>
+    				<button id="more">
+       					<i class="fas fa-ellipsis-h"></i>
+    					More</button>
+    			</li>
+    		</ul>
+    	</div>
+      
+        <section id="btns">
+        	<div id="nums">
+		    	<button class="num">1</button>
+		        <button class="num">2</button>
+		        <button class="num">3</button>
+		        <button class="num">4</button>
+		        <button class="num">5</button>
+		        <button class="num">6</button>
+		        <button class="num">7</button>
+		        <button class="num">8</button>
+		        <button class="num">9</button>
+		        <button class="del" onclick="del()">Del</button>
+		        <button class="num">0</button>
+		        <button class="clear" onclick="clear_all()">AC</button>
+				<button class="last" onclick="ans()" style="width: 40%">Ans</button>
+				<button id="clearMemory" style="width: 40%; height: 60px">MC</button>
+        	</div>
+        	
+        	<div id="sym">
+		    	<button class="symbol" id="dot">.</button>
+		        <button class="symbol" id="add">+</button>
+		        <button class="symbol" id="subtract">-</button>
+		        <button class="symbol" id="product">&times;</button>
+		        <button class="symbol" id="divide">÷</button>
+		        <button class="symbol" id="power">^</button>
+		        <button class="symbol" id="openbrac">(</button>
+		        <button class="symbol" id="closebrac">)</button>
+		        <button class="last" onclick="solve()">=</button>
+        	</div>
+        </section>
+    </div>
+  </div>
+  
+  <script async defer src="./scripts/calculator.js"></script>
+  <script async defer src="./scripts/main.js"></script>
+  <script async defer src="./scripts/settings.js"></script>
+</body>
+</html>

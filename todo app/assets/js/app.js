@@ -53,9 +53,9 @@ addbtn.onclick = (e) => {
 const createTodoForm = () => {
 	createpopUp(`
 		<form id="todo-form" autocomplete="off" spellcheck="false">
-			<h3>Add a to-do</h3>
+			<h3>Add a To-Do</h3>
     		<div class="todo-input">
-        		<input type="text" id="task" placeholder="Add a to-do..." autofocus>
+        		<input type="text" id="task" placeholder="Add a To-Do..." autofocus>
         	</div>
         	
         	<div class='todo-input'>
@@ -88,4 +88,16 @@ const createTodoForm = () => {
 		form.reset()
 		modbg.style.display = 'none'
 	}
+}
+
+document.querySelector("#info-wrap button").onclick = () => {
+	createpopUp(`
+		<h3>How to use</h3>
+		<ul>
+			<li>Click on the <strong>&plus;</strong> to add a new task</li>
+			<li>Click on the task to edit it</li>
+			<li>Check the box in front of the task to mark is as completed</li>
+			<li>Click and hold down the task to delete it</li>
+		</ul>
+	`)
 }

@@ -10,7 +10,7 @@ const getStorage = () => {
 
 const getTasks = () => {
 	if (!getStorage() || getStorage().length === 0) {
-		tasklist.innerHTML = `<div id='no-todo' class='fas fa-check-circle'><br>No To-dos! You're all set. Click on the <strong>&plus;</strong> button below to add a new To-do</div>`
+		tasklist.innerHTML = `<div id='no-todo' class='fas fa-check-circle'><br>No To-Dos! You're all set. Click on the <strong>&plus;</strong> button below to add a new To-Do</div>`
 	} else {
 		tasklist.innerHTML = ''
 		getStorage().forEach((val, ind) => {
@@ -71,7 +71,7 @@ const getTasks = () => {
 			tasklist.querySelectorAll('li')[ind].oncontextmenu = () => {
 				event.preventDefault()
 				createpopUp(`
-					<h3>delete todo</h3>
+					<h3>delete To-do</h3>
 					<table width='100%'>
 						<tr>
 							<th>Task Name</th>

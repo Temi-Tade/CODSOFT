@@ -112,6 +112,16 @@ a:hover, a:focus {
 	border-bottom: 2px solid var(--text-color-light)
 }
 
+#image{
+	display: flex;
+	justify-content: center
+}
+
+#image img{
+	border-radius: 50%;
+	border-bottom: 4px solid var(--text-color-light);
+}
+
 #meet_me{
 	padding: 1rem;
 	height: auto;
@@ -142,7 +152,7 @@ a:hover, a:focus {
 }
 
 #dynamic_text p{
-	height: 15rem;
+	height: auto;
 }
 
 #pic_bio_cv{
@@ -299,6 +309,10 @@ footer{
 	justify-content: space-between;
 	background: var(--text-color-light);
 	margin-top: 1rem;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
 }
 
 footer small{
@@ -317,6 +331,7 @@ footer ul li a{
 	color: var(--primary-color);
 	padding: .25rem;
 	border-radius: 50%;
+	font-size: var(--fsize-l1);
 }
 
 footer ul li a:hover, footer ul li a:focus{
@@ -463,5 +478,9 @@ footer ul li a:hover, footer ul li a:focus{
 	
 	.open{
 		max-height: 100rem;
+	}
+	
+	footer{
+		position: static;
 	}
 }
